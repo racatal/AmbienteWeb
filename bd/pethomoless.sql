@@ -8,7 +8,6 @@ CREATE DATABASE IF NOT EXISTS pethomeless CHARACTER SET utf8mb4 COLLATE utf8mb4_
 GRANT ALL PRIVILEGES ON pethomeless.* TO 'homeless'@'%';
 USE pethomeless;
 
--- Tabla de usuarios
 CREATE TABLE IF NOT EXISTS usuarios (
   id INT AUTO_INCREMENT PRIMARY KEY,
   nombre VARCHAR(100) NOT NULL,
@@ -18,7 +17,7 @@ CREATE TABLE IF NOT EXISTS usuarios (
   fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB;
 
--- Tabla de animales
+
 CREATE TABLE IF NOT EXISTS animales (
   id INT AUTO_INCREMENT PRIMARY KEY,
   usuario_id INT NOT NULL,
@@ -49,7 +48,6 @@ INSERT INTO resena (autor, contenido, calificacion, fecha) VALUES
 ('Ana Sánchez', 'Gracias a esta pagina le hemos buscando hogar a 2 mascotas', 5, NOW() - INTERVAL 2 DAY);
 
 
--- Tabla de adopciones
 CREATE TABLE IF NOT EXISTS adopciones (
   id INT AUTO_INCREMENT PRIMARY KEY,
   animal_id INT NOT NULL,
@@ -60,22 +58,19 @@ CREATE TABLE IF NOT EXISTS adopciones (
   FOREIGN KEY (animal_id) REFERENCES animales(id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
--- Datos de ejemplo (seed)
--- Insertar usuarios con hash SHA2
+
 INSERT INTO usuarios (nombre, correo, contrasena, rol) VALUES
 ('Admin','admin@homeless.cr',SHA2('admin123',256),'admin'),
 ('Usuario1','user@gmail.com',SHA2('user123',256),'usuario');
 
--- Verificar que usuarios se insertaron antes de los siguientes inserts
 
--- Insertar animales
 INSERT INTO animales (usuario_id, tipo, raza, color, tamanio, fecha_encontrado, lugar, foto) VALUES
 (1,'Perro','Mestizo','Café','mediano','2025-07-01','San José','https://cdn0.expertoanimal.com/es/posts/3/3/2/braco_aleman_de_pelo_corto_26233_5_600.jpg'),
 (2,'Gato','Siamés','Blanco y gris','pequeño','2025-06-28','Heredia','https://upload.wikimedia.org/wikipedia/commons/6/60/Neighbours_Siamese.jpg'),
 (2,'Conejo','Lop','Blanco','pequeño','2025-07-02','Alajuela','https://www.mundoconejos.com/wp-content/uploads/2018/04/conejito-blanco-de-florida-830x830.jpeg');
 
 
--- Insertar adopciones
+
 INSERT INTO adopciones (animal_id, fecha_adopcion, adoptante_nombre, adoptante_contacto) VALUES
 (1,'2025-07-10','Familia López','+506 8765-4321');
 
