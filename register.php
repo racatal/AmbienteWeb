@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'conn.php'; 
+require_once __DIR__ . '/config/conn.php';
 
 $error = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
