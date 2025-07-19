@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'conn.php';
+require_once __DIR__ . '/config/conn.php';
 $stmt = $pdo->query("SELECT id, tipo, raza, color, foto FROM animales WHERE reclamado = 0 ORDER BY fecha_registro DESC");
 $animales = $stmt->fetchAll();
 ?>
@@ -39,12 +39,12 @@ $animales = $stmt->fetchAll();
                   <li><a class="dropdown-item" href="admin.php">Panel Admin</a></li>
                 <?php endif; ?>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="login.php">Cerrar Sesión</a></li>
+                <a class="dropdown-item" href="logout.php">Cerrar Sesión</a>
               </ul>
             </li>
           <?php else: ?>
             <li class="nav-item"><a class="nav-link" href="login.php">Iniciar Sesión</a></li>
-            <li class="nav-item"><a class="nav-link" href="register.php">Registrarse</a></li>
+            <li class="nav-item"><a class="nav-link" href="registro.php">Registrarse</a></li>
           <?php endif; ?>
         </ul>
       </div>

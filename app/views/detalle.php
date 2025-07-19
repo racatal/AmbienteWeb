@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'conn.php';
+require_once __DIR__ . '/config/conn.php';
 if (!isset($_GET['id']) || !is_numeric($_GET['id'])) exit('ID inválido.');
 $stmt = $pdo->prepare(
   'SELECT a.*, u.nombre AS reportado_por FROM animales a
