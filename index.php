@@ -1,9 +1,23 @@
 <?php
 session_start();
-require_once __DIR__ . '/config/conn.php';
-$stmt = $pdo->query("SELECT id, tipo, raza, color, foto FROM animales WHERE reclamado = 0 ORDER BY fecha_registro DESC");
-$animales = $stmt->fetchAll();
+
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.php');
+    exit;
+}
+
+// Redirigir según el rol
+if ($_SESSION['user_role'] === 'admin') {
+    header('Location: adminDashboard.php');
+    exit;
+} elseif ($_SESSION['user_role'] === 'usuario') {
+    header('Location: usuarioDashboard.php');
+    exit;
+} else {
+
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
