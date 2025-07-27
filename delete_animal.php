@@ -14,7 +14,7 @@ $isAdmin = ($_SESSION['user_role'] ?? '') === 'admin';
 
 // Validar id
 if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
-    header('Location: index.php');
+    header('Location: user.php');
     exit;
 }
 $id = (int)$_GET['id'];
@@ -31,5 +31,5 @@ $stmt->execute([
     'isAdmin' => $isAdmin?1:0
 ]);
 
-header('Location: index.php');
+header('Location: user.php');
 exit;

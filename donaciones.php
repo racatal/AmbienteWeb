@@ -47,10 +47,13 @@ session_start();
     </div>
   </div>
 
-  <?php include 'layout/footer.php'; ?>
+    <button id="backToTop" title="Volver arriba">↑</button>
+  <button id="themeToggle" title="Cambiar tema">🌙</button>
 
+  <?php include 'layout/footer.php'; ?>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/actuar.js"></script>
   <script src="js/donaciones.js"></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

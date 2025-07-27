@@ -22,7 +22,8 @@ $animales = $stmt->fetchAll();
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
     rel="stylesheet"
   >
-  <link href="css/style.css" rel="stylesheet"/>
+  <link href="/pethomeless/css/style.css" rel="stylesheet">
+
 </head>
 <body>
   <?php include 'layout/nav.php'; ?>
@@ -170,11 +171,13 @@ $animales = $stmt->fetchAll();
     </div>
   </main>
 
+  <button id="backToTop" title="Volver arriba">↑</button>
+  <button id="themeToggle" title="Cambiar tema">🌙</button>
+
   <?php include 'layout/footer.php'; ?>
 
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-  ></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/actuar.js"></script>
   <script src="js/addmas.js"></script>
   <script src="js/reclamo.js"></script>
   <script src="js/redirect.js"></script>

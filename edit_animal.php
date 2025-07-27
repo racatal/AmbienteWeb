@@ -138,8 +138,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                value="<?= htmlspecialchars($animal['foto']) ?>">
       </div>
       <button type="submit" class="btn btn-primary">Guardar cambios</button>
-      <a href="index.php" class="btn btn-secondary">Cancelar</a>
+      <a href="user.php" class="btn btn-secondary">Cancelar</a>
     </form>
   </div>
+
+  <button id="backToTop" title="Volver arriba">↑</button>
+  <button id="themeToggle" title="Cambiar tema">🌙</button>
+  <?php include 'layout/footer.php'; ?>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/actuar.js"></script>
 </body>
 </html>
