@@ -1,0 +1,165 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto:wght@300;400;500&display=swap');
+
+:root {
+  --primary-cream: #fff8f0;
+  --warm-beige:    #f4e1d2;
+  --soft-peach:    #ffd8b1;
+  --dusty-rose:    #e8b4b8;
+  --coffee-brown:  #5d4037;
+  --caramel:       #7f5539;
+
+  --space-sm:     0.5rem;
+  --space-md:     1rem;
+  --font-base:    'Roboto', sans-serif;
+  --font-heading: 'Montserrat', sans-serif;
+}
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+  background-color: var(--primary-cream);
+  font-family: var(--font-base);
+  color: var(--coffee-brown);
+  line-height: 1.5;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: var(--font-heading);
+}
+
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--caramel) !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease;
+  min-height: 70px;
+}
+.navbar.scrolled {
+  background-color: rgba(127,85,57,0.95) !important;
+}
+.navbar-brand {
+  color: var(--primary-cream) !important;
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+}
+.navbar-nav .nav-link {
+  color: var(--primary-cream) !important;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.2s ease;
+}
+.navbar-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -4px;
+  width: 0; height: 2px;
+  background: var(--soft-peach);
+  transition: width 0.3s ease;
+}
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: var(--soft-peach) !important;
+}
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+  width: 100%;
+}
+
+
+.banner::before {
+  content: '';
+  position: absolute;
+  top:0; left:0; right:0; bottom:0;
+  background: rgba(127,85,57,0.4);
+}
+.banner .container {
+  position: relative;
+  z-index:1;
+}
+
+/* 9) Tarjetas y botones */
+.card {
+  border: 2px solid var(--warm-beige);
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+.card-img-top {
+  border-top-left-radius: 13px;
+  border-top-right-radius: 13px;
+  height: 200px;
+  object-fit: cover;
+}
+.card-img-top2 {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 500px;
+  object-fit: initial;
+}
+.btn-primary {
+  background-color: var(--caramel) !important;
+  border-color: var(--caramel) !important;
+  color: #fff !important;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-primary:hover {
+  background-color: #6e4934 !important;
+  border-color: #6e4934 !important;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important;
+}
+
+/* 10) Formularios */
+input:focus, textarea:focus, select:focus {
+  border-color: var(--soft-peach) !important;
+  box-shadow: 0 0 0 0.2rem rgba(255,216,177,0.4) !important;
+}
+
+/* 11) Reseñas */
+.comments-container {
+  padding: 2rem 0;
+  background: var(--primary-cream);
+}
+.comment-card {
+  border: 2px solid var(--warm-beige);
+  border-radius: 15px;
+}
+.card-header {
+  background-color: var(--warm-beige);
+  border-radius: 15px 15px 0 0;
+  text-align: center;
+}
+.comment-form-container {
+  padding: 2rem 1rem;
+}
+.reviews-list {
+  display: grid;
+  gap: var(--space-md);
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+.star-rating {
+  color: #ffc107;
+  font-size: 1.2rem;
+  margin-bottom: var(--space-sm);
+}
+
+
+footer {
+  background-color: var(--warm-beige);
+  color: var(--coffee-brown);
+  border-top: 2px solid var(--soft-peach);
+  padding: var(--space-md) 0;
+}
+
