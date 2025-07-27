@@ -1,8 +1,9 @@
 <?php
-
+// index.php
 session_start();
 require 'conn.php';
 
+// Consulta animales perdidos
 $stmt = $pdo->query("
   SELECT id, usuario_id, tipo, raza, color, tamanio, fecha_encontrado, lugar, foto 
   FROM animales 
@@ -33,11 +34,19 @@ $animales = $stmt->fetchAll();
         Total reportados:
         <span id="totalCount"><?= count($animales) ?></span>
       </p>
+
       <?php if (isset($_SESSION['user_id'])): ?>
-        <a href="#addForm"
-           class="btn btn-primary mt-3"
-           data-bs-toggle="collapse"
+        <!-- Usuario logueado: despliega el formulario -->
+        <a
+          href="#addForm"
+          class="btn btn-primary mt-3 btn-add"
+          data-bs-toggle="collapse"
         >Agregar Mascota</a>
+      <?php else: ?>
+        <!-- No logueado: redirige a login -->
+        <button
+          class="btn btn-primary mt-3 btn-add-redirect"
+        >Agregar Mascota</button>
       <?php endif; ?>
     </div>
   </header>
@@ -51,47 +60,63 @@ $animales = $stmt->fetchAll();
             <form id="formAddPet">
               <div class="row g-2">
                 <div class="col-md-2">
-                  <input type="text" name="tipo"
-                         class="form-control"
-                         placeholder="Tipo"
-                         required>
+                  <input
+                    type="text" name="tipo"
+                    class="form-control"
+                    placeholder="Tipo"
+                    required
+                  >
                 </div>
                 <div class="col-md-2">
-                  <input type="text" name="raza"
-                         class="form-control"
-                         placeholder="Raza">
+                  <input
+                    type="text" name="raza"
+                    class="form-control"
+                    placeholder="Raza"
+                  >
                 </div>
                 <div class="col-md-2">
-                  <input type="text" name="color"
-                         class="form-control"
-                         placeholder="Color">
+                  <input
+                    type="text" name="color"
+                    class="form-control"
+                    placeholder="Color"
+                  >
                 </div>
                 <div class="col-md-2">
-                  <input type="text" name="tamanio"
-                         class="form-control"
-                         placeholder="Tamaño">
+                  <input
+                    type="text" name="tamanio"
+                    class="form-control"
+                    placeholder="Tamaño"
+                  >
                 </div>
                 <div class="col-md-2">
-                  <input type="date" name="fecha_encontrado"
-                         class="form-control"
-                         required>
+                  <input
+                    type="date" name="fecha_encontrado"
+                    class="form-control"
+                    required
+                  >
                 </div>
                 <div class="col-md-2">
-                  <input type="text" name="lugar"
-                         class="form-control"
-                         placeholder="Lugar">
+                  <input
+                    type="text" name="lugar"
+                    class="form-control"
+                    placeholder="Lugar"
+                  >
                 </div>
               </div>
               <div class="row g-2 mt-2">
                 <div class="col-12">
-                  <input type="url" name="foto"
-                         class="form-control"
-                         placeholder="URL de imagen"
-                         required>
+                  <input
+                    type="url" name="foto"
+                    class="form-control"
+                    placeholder="URL de imagen"
+                    required
+                  >
                 </div>
               </div>
-              <button type="submit"
-                      class="btn btn-primary mt-3">
+              <button
+                type="submit"
+                class="btn btn-primary mt-3"
+              >
                 Agregar mascota
               </button>
             </form>
@@ -102,12 +127,16 @@ $animales = $stmt->fetchAll();
 
     <div class="row g-4" id="gallery">
       <?php foreach ($animales as $a): ?>
-        <div class="col-sm-6 col-md-4 col-lg-3 pet-card"
-             data-id="<?= $a['id'] ?>">
+        <div
+          class="col-sm-6 col-md-4 col-lg-3 pet-card"
+          data-id="<?= $a['id'] ?>"
+        >
           <div class="card h-100 shadow-sm">
-            <img src="<?= htmlspecialchars($a['foto']) ?>"
-                 class="card-img-top"
-                 alt="<?= htmlspecialchars($a['tipo']) ?>">
+            <img
+              src="<?= htmlspecialchars($a['foto']) ?>"
+              class="card-img-top"
+              alt="<?= htmlspecialchars($a['tipo']) ?>"
+            >
             <div class="card-body d-flex flex-column">
               <h5 class="card-title"><?= htmlspecialchars($a['tipo']) ?></h5>
               <p class="card-text mb-4">
@@ -118,8 +147,10 @@ $animales = $stmt->fetchAll();
                 Lugar:    <?= htmlspecialchars($a['lugar'] ?: 'N/A') ?>
               </p>
               <div class="mt-auto d-grid gap-2">
-                <a href="detalle.php?id=<?= $a['id'] ?>"
-                   class="btn btn-secondary">
+                <a
+                  href="detalle.php?id=<?= $a['id'] ?>"
+                  class="btn btn-secondary"
+                >
                   Detalles
                 </a>
                 <?php if (isset($_SESSION['user_id'])): ?>
@@ -127,8 +158,7 @@ $animales = $stmt->fetchAll();
                     Reclamar
                   </button>
                 <?php else: ?>
-                  <button
-                    class="btn btn-success btn-reclaim-redirect">
+                  <button class="btn btn-success btn-reclaim-redirect">
                     Reclamar
                   </button>
                 <?php endif; ?>
@@ -147,7 +177,6 @@ $animales = $stmt->fetchAll();
   ></script>
   <script src="js/addmas.js"></script>
   <script src="js/reclamo.js"></script>
-  <script src="js/reclamo_no.js"></script>
-  
+  <script src="js/redirect.js"></script>
 </body>
 </html>
