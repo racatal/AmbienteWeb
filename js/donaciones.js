@@ -27,8 +27,8 @@
           return actions.order.capture().then(details => {
             const name = details.payer.name.given_name || 'amigo';
             alert(`¡Gracias ${name}! Tu donación de \$${details.purchase_units[0].amount.value} ha sido recibida.`);
-            // Opcional: redirigir a página de éxito
-            // window.location.href = 'success.php';
+            // redirije a página de éxito
+             window.location.href = 'success.php';
           });
         },
         onError: err => {
