@@ -1,31 +1,36 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const btn = document.getElementById('btnReclaim');
-  if (!btn) return;
+ 
+  const btnReclamar = document.querySelector('.btn-reclaim');
+  if (btnReclamar) {
+    btnReclamar.addEventListener('click', async () => {
+      const params = new URLSearchParams(window.location.search);
+      const id = Number(params.get('id'));
+      if (!id) return;
 
-  btn.addEventListener('click', async () => {
-    const id = btn.getAttribute('data-id');
-    if (!id || isNaN(id)) return;
+      btnReclamar.disabled = true;
+      btnReclamar.textContent = 'Reclamando…';
 
-    if (!confirm('¿Deseas reclamar esta mascota?')) return;
+      try {
+        const response = await fetch('reclamo_animal.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ id })
+        });
 
-    try {
-      const res  = await fetch('reclaim_pet.php', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id: Number(id) })
-      });
-      const data = await res.json();
+        const result = await response.json();
 
-      if (data.success) {
-        // Al reclamar, recarga la página para actualizar el estado
-        alert('Mascota reclamada con éxito.');
-        location.reload();
-      } else {
-        alert(data.error || 'Error al reclamar la mascota.');
+        if (response.ok && result.success) {
+          btnReclamar.textContent = 'Reclamado';
+          btnReclamar.classList.replace('btn-success', 'btn-secondary');
+        } else {
+          throw new Error(result.error || 'No se pudo procesar el reclamo');
+        }
+      } catch (err) {
+        alert(err.message);
+        btnReclamar.disabled = false;
+        btnReclamar.textContent = 'Reclamar';
       }
-    } catch (err) {
-      console.error(err);
-      alert('Error en la petición.');
-    }
-  });
+    });
+  }
+
 });
