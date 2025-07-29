@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS animales (
   tipo VARCHAR(50) NOT NULL,
   raza VARCHAR(100) DEFAULT NULL,
   color VARCHAR(50) DEFAULT NULL,
-  tamanio ENUM('pequeño','mediano','grande') DEFAULT NULL,
+  tamanio VARCHAR(255) DEFAULT NULL,
   fecha_encontrado DATE NOT NULL,
   lugar VARCHAR(150) DEFAULT NULL,
   foto VARCHAR(255) DEFAULT NULL,
