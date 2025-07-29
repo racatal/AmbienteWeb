@@ -13,6 +13,7 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
+// Lee JSON de la petición
 $input = json_decode(file_get_contents('php://input'), true);
 $id    = isset($input['id']) && is_numeric($input['id'])
          ? (int)$input['id']
@@ -24,6 +25,7 @@ if (!$id) {
 }
 
 try {
+     //Marca como reclamado
     $stmt = $pdo->prepare("
       UPDATE animales
       SET reclamado = 1
@@ -31,6 +33,7 @@ try {
     ");
     $stmt->execute(['id'=>$id]);
     if ($stmt->rowCount()===0) {
+     // O bien ya estaba reclamado, o el ID no existe
         http_response_code(404);
         echo json_encode(['success'=>false,'error'=>'No encontrado o ya reclamado']);
     } else {
