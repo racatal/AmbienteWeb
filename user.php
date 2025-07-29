@@ -44,38 +44,68 @@ $misAnimales = $stmt->fetchAll();
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Agregar nueva mascota</h5>
-          <form id="formAddAnimal">
-            <div class="row g-2">
-              <div class="col-md-2">
-                <input type="text" name="tipo" class="form-control" placeholder="Tipo" required>
+           <form id="formAddPet">
+              <div class="row g-2">
+                <div class="col-md-2">
+                  <input
+                    type="text" name="tipo"
+                    class="form-control"
+                    placeholder="Tipo"
+                    required
+                  >
+                </div>
+                <div class="col-md-2">
+                  <input
+                    type="text" name="raza"
+                    class="form-control"
+                    placeholder="Raza"
+                  >
+                </div>
+                <div class="col-md-2">
+                  <input
+                    type="text" name="color"
+                    class="form-control"
+                    placeholder="Color"
+                  >
+                </div>
+                <div class="col-md-2">
+                  <input
+                    type="text" name="tamanio"
+                    class="form-control"
+                    placeholder="Tamaño"
+                  >
+                </div>
+                <div class="col-md-2">
+                  <input
+                    type="date" name="fecha_encontrado"
+                    class="form-control"
+                    required
+                  >
+                </div>
+                <div class="col-md-2">
+                  <input
+                    type="text" name="lugar"
+                    class="form-control"
+                    placeholder="Lugar"
+                  >
+                </div>
               </div>
-              <div class="col-md-2">
-                <input type="text" name="raza" class="form-control" placeholder="Raza">
+              <div class="row g-2 mt-2">
+                <div class="col-12">
+                  <input
+                    type="url" name="foto"
+                    class="form-control"
+                    placeholder="URL de imagen"
+                    required
+                  >
+                </div>
               </div>
-              <div class="col-md-2">
-                <input type="text" name="color" class="form-control" placeholder="Color">
-              </div>
-              <div class="col-md-2">
-                <select name="tamanio" class="form-select">
-                  <option value="">Tamaño</option>
-                  <option value="pequeño">Pequeño</option>
-                  <option value="mediano">Mediano</option>
-                  <option value="grande">Grande</option>
-                </select>
-              </div>
-              <div class="col-md-2">
-                <input type="date" name="fecha_encontrado" class="form-control" required>
-              </div>
-              <div class="col-md-2">
-                <input type="text" name="lugar" class="form-control" placeholder="Lugar">
-              </div>
-            </div>
-            <div class="row g-2 mt-2">
-              <div class="col-12">
-                <input type="url" name="foto" class="form-control" placeholder="URL de imagen" required>
-              </div>
-            </div>
-            <button type="submit" class="btn btn-primary mt-3">Guardar Mascota</button>
+              <button
+                type="submit"
+                class="btn btn-primary mt-3"
+              >
+                Agregar mascota
+              </button>
           </form>
         </div>
       </div>
@@ -135,7 +165,9 @@ $misAnimales = $stmt->fetchAll();
   <?php include 'layout/footer.php'; ?>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/actuar.js"></script>
-  <script src="js/user_add.js"></script>
+   <script src="js/actuar.js"></script>
+  <script src="js/addmas.js"></script>
+  <script src="js/reclamo.js"></script>
+  <script src="js/redirect.js"></script>
 </body>
 </html>
