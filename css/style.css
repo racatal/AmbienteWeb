@@ -53,9 +53,9 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 1000;
   background-color: var(--caramel) !important;
   -webkit-box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-          box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   -webkit-transition: background-color 0.3s ease;
-          transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
   min-height: 70px;
 }
 .navbar.scrolled {
@@ -71,7 +71,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
   position: relative;
   -webkit-transition: color 0.2s ease;
-          transition: color 0.2s ease;
+  transition: color 0.2s ease;
 }
 .navbar-nav .nav-link::after {
   content: '';
@@ -80,7 +80,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 0; height: 2px;
   background: var(--soft-peach);
   -webkit-transition: width 0.3s ease;
-          transition: width 0.3s ease;
+  transition: width 0.3s ease;
 }
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link.active {
@@ -107,13 +107,13 @@ h1, h2, h3, h4, h5, h6 {
   border: 2px solid var(--warm-beige);
   border-radius: 15px;
   -webkit-transition: transform 0.3s ease, box-shadow 0.3s ease;
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .card:hover {
   -webkit-transform: translateY(-5px);
-          transform: translateY(-5px);
+  transform: translateY(-5px);
   -webkit-box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-          box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
 }
 .card-img-top {
   border-top-left-radius: 13px;
@@ -132,20 +132,20 @@ h1, h2, h3, h4, h5, h6 {
   border-color: var(--caramel) !important;
   color: #fff !important;
   -webkit-transition: background-color 0.2s ease, box-shadow 0.2s ease;
-          transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
 }
 .btn-primary:hover {
   background-color: #6e4934 !important;
   border-color: #6e4934 !important;
   -webkit-box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important;
-          box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important;
 }
 
 
 input:focus, textarea:focus, select:focus {
   border-color: var(--soft-peach) !important;
   -webkit-box-shadow: 0 0 0 0.2rem rgba(255,216,177,0.4) !important;
-          box-shadow: 0 0 0 0.2rem rgba(255,216,177,0.4) !important;
+  box-shadow: 0 0 0 0.2rem rgba(255,216,177,0.4) !important;
 }
 
 .comments-container {
@@ -185,14 +185,14 @@ footer {
 .reveal {
   opacity: 0;
   -webkit-transform: translateY(20px);
-          transform: translateY(20px);
+  transform: translateY(20px);
   -webkit-transition: opacity 0.6s ease, transform 0.6s ease;
-          transition: opacity 0.6s ease, transform 0.6s ease;
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 .reveal.visible {
   opacity: 1;
   -webkit-transform: none;
-          transform: none;
+  transform: none;
 }
 
 #backToTop {
@@ -210,7 +210,7 @@ footer {
   justify-content: center;
   cursor: pointer;
   -webkit-box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-          box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   z-index: 1000;
 }
 #backToTop:hover {
@@ -232,7 +232,7 @@ footer {
   justify-content: center;
   cursor: pointer;
   -webkit-box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-          box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   z-index: 1000;
 }
 #themeToggle:hover {

@@ -1,5 +1,4 @@
 <?php
-// reclaim_pet.php
 session_start();
 require 'conn.php';
 

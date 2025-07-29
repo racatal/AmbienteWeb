@@ -1,5 +1,4 @@
 <?php
-// add_animal.php
 session_start();
 require 'conn.php';
 

@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       e.target.closest('.pet-card').remove();
       totalCount.textContent = Number(totalCount.textContent)-1;
-      alert('Mascota reclamada con éxito.');
+      alert('Mascota reclamada con exito.');
     } catch(err) {
       console.error(err);
       alert('Error en la petición.');

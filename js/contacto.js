@@ -1,4 +1,3 @@
-// js/contacto.js
 document.addEventListener('DOMContentLoaded', () => {
   const form   = document.getElementById('my-form');
   const status = document.getElementById('my-form-status');

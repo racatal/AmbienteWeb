@@ -1,9 +1,8 @@
 <?php
-// delete_animal.php
 session_start();
 require 'conn.php';
 
-// Verificar sesión
+// Verifica sesión
 if (!isset($_SESSION['user_id'])) {
     header('Location: login.php');
     exit;
@@ -12,14 +11,14 @@ if (!isset($_SESSION['user_id'])) {
 $userId  = $_SESSION['user_id'];
 $isAdmin = ($_SESSION['user_role'] ?? '') === 'admin';
 
-// Validar id
+// Valida id
 if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
     header('Location: user.php');
     exit;
 }
 $id = (int)$_GET['id'];
 
-// Borrar sólo si es propietario o admin
+// Borra sólo si es propietario o admin
 $stmt = $pdo->prepare("
     DELETE FROM animales
     WHERE id = :id

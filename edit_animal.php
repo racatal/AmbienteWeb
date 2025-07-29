@@ -1,9 +1,8 @@
 <?php
-// edit_animal.php
 session_start();
 require 'conn.php';
 
-// 1) Verificar sesión y parámetro id
+// Verificr sesión y parámetro id
 if (!isset($_SESSION['user_id'])) {
     header('Location: login.php');
     exit;
@@ -17,7 +16,7 @@ $userId  = $_SESSION['user_id'];
 $isAdmin = ($_SESSION['user_role'] ?? '') === 'admin';
 $id      = (int)$_GET['id'];
 
-// 2) Leer datos actuales y verificar permisos
+//Lee datos actuales y verifica permisos
 $stmt = $pdo->prepare("
     SELECT usuario_id, tipo, raza, color, tamanio, fecha_encontrado, lugar, foto
     FROM animales
@@ -32,7 +31,7 @@ if (!$animal) {
     exit;
 }
 
-// 3) Procesar actualización
+//Procesa actualización
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $tipo             = trim($_POST['tipo']            ?? '');
     $raza             = trim($_POST['raza']            ?? null);

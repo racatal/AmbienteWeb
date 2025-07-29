@@ -12,7 +12,7 @@
           shape:  'rect',
           label:  'donate'
         },
-        // 1. Crear la orden con el monto del input
+        // Crea la orden con el monto del input
         createOrder: (data, actions) => {
           const value = document.getElementById('amount').value;
           return actions.order.create({
@@ -22,7 +22,7 @@
             }]
           });
         },
-        // 2. Capturar la orden y agradecer
+        //Captura la orden y agradecer
         onApprove: (data, actions) => {
           return actions.order.capture().then(details => {
             const name = details.payer.name.given_name || 'amigo';

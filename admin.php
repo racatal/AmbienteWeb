@@ -1,18 +1,17 @@
 <?php
-// admin.php
 session_start();
 require 'conn.php';
 
-// 1) Verificar que sea admin
+// Verifica que sea admin
 if (!isset($_SESSION['user_id']) || ($_SESSION['user_role'] ?? '') !== 'admin') {
     header('Location: login.php');
     exit;
 }
 
-// (Opcional) Ver errores de BD en desarrollo
+// Ver errores de BD en desarrollo
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-// 2) Borrar animal si viene por GET
+// Borra animal si viene por GET
 if (isset($_GET['delete_animal']) && is_numeric($_GET['delete_animal'])) {
     $pdo->prepare("DELETE FROM animales WHERE id = :id")
         ->execute(['id' => (int)$_GET['delete_animal']]);
@@ -20,7 +19,7 @@ if (isset($_GET['delete_animal']) && is_numeric($_GET['delete_animal'])) {
     exit;
 }
 
-// 3) Borrar usuario si viene por GET (sin permitir que se borre a sí mismo)
+//Borra usuario si viene por GET (sin permitir que se borre a sí mismo)
 if (isset($_GET['delete_user']) && is_numeric($_GET['delete_user'])) {
     $delId = (int)$_GET['delete_user'];
     if ($delId !== $_SESSION['user_id']) {
@@ -31,7 +30,7 @@ if (isset($_GET['delete_user']) && is_numeric($_GET['delete_user'])) {
     exit;
 }
 
-// 4) Obtener todos los animales
+// Obtiene todos los animales
 $allAnimals = $pdo->query("
     SELECT a.id, a.tipo, a.raza, a.color, a.tamanio,
            a.fecha_encontrado, a.lugar, a.reclamado,
@@ -41,7 +40,7 @@ $allAnimals = $pdo->query("
      ORDER BY a.id DESC
 ")->fetchAll();
 
-// 5) Obtener todos los usuarios
+//Obtiene todos los usuarios
 $allUsers = $pdo->query("
     SELECT id, nombre, correo
       FROM usuarios
@@ -66,7 +65,7 @@ $allUsers = $pdo->query("
   <div class="container my-5">
     <h1 class="mb-4">Panel de Administrador</h1>
 
-    <!-- Sección Animales -->
+    <!--Animales -->
     <h2>Animales Reportados</h2>
     <div class="table-responsive mb-5">
       <table class="table table-striped align-middle">
@@ -110,7 +109,7 @@ $allUsers = $pdo->query("
       </table>
     </div>
 
-    <!-- Sección Usuarios -->
+    <!-- Usuarios -->
     <h2>Usuarios Registrados</h2>
     <div class="table-responsive">
       <table class="table table-striped align-middle">

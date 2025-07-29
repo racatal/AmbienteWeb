@@ -1,16 +1,15 @@
 <?php
-// detalle.php
 session_start();
 require 'conn.php';
 
-// Validar parámetro id
+// Valida parámetro id
 if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
     exit('ID inválido.');
 }
 
 $id = (int)$_GET['id'];
 
-// Obtener datos del animal
+// Obtiene datos del animal
 $stmt = $pdo->prepare("
   SELECT a.*, u.nombre AS reportado_por 
   FROM animales a

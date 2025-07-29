@@ -10,7 +10,7 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-// Leer JSON de la petición
+// Lee JSON de la petición
 $input = json_decode(file_get_contents('php://input'), true);
 
 if (empty($input['id']) || !is_numeric($input['id'])) {
@@ -22,7 +22,7 @@ if (empty($input['id']) || !is_numeric($input['id'])) {
 $id = (int)$input['id'];
 
 try {
-    // Marca como reclamado
+    //Marca como reclamado
     $stmt = $pdo->prepare(
         'UPDATE animales
          SET reclamado = 1

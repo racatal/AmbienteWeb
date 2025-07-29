@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Búsqueda con radio por defecto
       searchVets(lat, lon, Number(radiusInput.value));
 
-      // Al hacer click en “Buscar veterinarias”
+      // Al hacer click en buscar veterinarias
       btnSearch.addEventListener('click', () => {
         searchVets(lat, lon, Number(radiusInput.value));
       });

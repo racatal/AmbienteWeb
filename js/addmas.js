@@ -1,4 +1,3 @@
-// js/addmas.js
 document.addEventListener('DOMContentLoaded', () => {
   const form       = document.getElementById('formAddPet');
   const gallery    = document.getElementById('gallery');

@@ -38,7 +38,7 @@ session_start();
   </header>
 
   <main class="container mb-5">
-    <!-- Control dinámico del radio -->
+    <!-- Control del radio -->
     <div class="row mb-3">
       <div class="col-md-6 offset-md-3">
         <label for="radius" class="form-label">Radio de búsqueda:</label>

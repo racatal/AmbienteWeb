@@ -1,4 +1,3 @@
-// js/detalle.js
 document.addEventListener('DOMContentLoaded', () => {
   const btn = document.getElementById('btnReclaim');
   if (!btn) return;

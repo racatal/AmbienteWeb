@@ -9,11 +9,11 @@ require 'conn.php';
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>¿Cómo Actuar? – Pet Homeless</title>
-  <!-- Bootstrap CSS -->
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Font Awesome -->
+ 
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-  <!-- Tu CSS principal -->
+
   <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
@@ -30,7 +30,7 @@ require 'conn.php';
   </header>
 
   <main class="container my-5">
-    <!-- Animal Herido -->
+   
     <section id="herido" class="mb-5 reveal">
       <div class="row g-4 align-items-center">
         <div class="col-md-5">
@@ -57,7 +57,7 @@ require 'conn.php';
       </div>
     </section>
 
-    <!-- Animal Agresivo -->
+
     <section id="agresivo" class="mb-5 reveal">
       <div class="row g-4 align-items-center flex-md-row-reverse">
         <div class="col-md-5">
@@ -84,7 +84,6 @@ require 'conn.php';
       </div>
     </section>
 
-    <!-- Animal Extraviado -->
     <section id="extraviado" class="mb-5 reveal">
       <div class="row g-4 align-items-center">
         <div class="col-md-5">

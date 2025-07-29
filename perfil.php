@@ -1,9 +1,8 @@
 <?php
-// profile.php
 session_start();
 require 'conn.php';
 
-// 1) Redirigir si no está logueado
+// Redirije si no está logueado
 if (!isset($_SESSION['user_id'])) {
     header('Location: login.php');
     exit;
@@ -13,7 +12,7 @@ $userId = $_SESSION['user_id'];
 $error   = '';
 $success = '';
 
-// 2) Traer datos del usuario
+//Trae datos del usuario
 $stmt = $pdo->prepare("SELECT nombre, correo, contrasena FROM usuarios WHERE id = :uid");
 $stmt->execute(['uid' => $userId]);
 $user = $stmt->fetch();
@@ -23,7 +22,7 @@ if (!$user) {
     exit;
 }
 
-// 3) Procesar POST
+// Procesa POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Campos básicos
     $nombre = trim($_POST['nombre'] ?? '');
@@ -50,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    // 4) Contraseña: sólo validar si rellenó alguno de los tres campos
+    // Contraseña: sólo validar si rellenó alguno de los tres campos
     if (!$error && ($passAct || $passNew || $passCon)) {
         // Debe rellenar los tres
         if (!$passAct || !$passNew || !$passCon) {
@@ -66,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    // 5) Si no hay error, actualizar
+    // Si no hay error, actualizar
     if (!$error) {
         // Armar SET dinámico
         $sets = ['nombre = :n', 'correo = :c'];
@@ -171,7 +170,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <button id="themeToggle" title="Cambiar tema">🌙</button>
 
   <?php include 'layout/footer.php'; ?>
-
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/actuar.js"></script>
