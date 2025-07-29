@@ -14,4 +14,4 @@ try {
     $pdo = new PDO($dsn, $user, $pass, $options);
 } catch (PDOException $e) {
     exit('Error de conexión: ' . $e->getMessage());
-}sdf
+}
