@@ -48,17 +48,6 @@ INSERT INTO resena (autor, contenido, calificacion, fecha) VALUES
 ('Ana Sánchez', 'Gracias a esta pagina le hemos buscando hogar a 2 mascotas', 5, NOW() - INTERVAL 2 DAY);
 
 
-CREATE TABLE IF NOT EXISTS adopciones (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  animal_id INT NOT NULL,
-  fecha_adopcion DATE NOT NULL,
-  adoptante_nombre VARCHAR(100) NOT NULL,
-  adoptante_contacto VARCHAR(100) NOT NULL,
-  fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (animal_id) REFERENCES animales(id) ON DELETE CASCADE
-) ENGINE=InnoDB;
-
-
 INSERT INTO usuarios (nombre, correo, contrasena, rol) VALUES
 ('Admin','admin@homeless.cr',SHA2('admin123',256),'admin'),
 ('Usuario1','user@gmail.com',SHA2('user123',256),'usuario');
@@ -69,10 +58,6 @@ INSERT INTO animales (usuario_id, tipo, raza, color, tamanio, fecha_encontrado, 
 (2,'Gato','Siamés','Blanco y gris','pequeño','2025-06-28','Heredia','https://upload.wikimedia.org/wikipedia/commons/6/60/Neighbours_Siamese.jpg'),
 (2,'Conejo','Lop','Blanco','pequeño','2025-07-02','Alajuela','https://www.mundoconejos.com/wp-content/uploads/2018/04/conejito-blanco-de-florida-830x830.jpeg');
 
-
-
-INSERT INTO adopciones (animal_id, fecha_adopcion, adoptante_nombre, adoptante_contacto) VALUES
-(1,'2025-07-10','Familia López','+506 8765-4321');
 
 
 
